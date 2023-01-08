@@ -3,8 +3,10 @@ from selenium.webdriver.common.by import By
 import time
 import pytest
 
-link = 'http://selenium1py.pythonanywhere.com/ru/catalogue/coders-at-work_207/'
+link = 'http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/'
 
-class TestingOne():
-    def test_stop(self, browser):
-        browser.get(link)
+
+def test_button_search(browser):
+    browser.get(link)
+    assert browser.find_element(By.XPATH, '//button[@class="btn btn-lg btn-primary btn-add-to-basket"]')
+    time.sleep(10)
